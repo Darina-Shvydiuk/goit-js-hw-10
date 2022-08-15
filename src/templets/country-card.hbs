@@ -6,7 +6,11 @@
     <h2 class='card-title'>Назва країни:{{name.official}}</h2>
     <p class='card-text'>Столиця:{{capital}}</p>
     <p class='card-text'>Населення:{{population}}</p>
-    <p class='card-text'>Мова:{{languages}}</p>
+    <ul class='country-languages'>
+      {{#each languages}}
+        <li class='country-languages-item'>{{this}}</li>
+      {{/each}}
+    </ul>
   </div>
 
 </div>
