@@ -19,7 +19,11 @@
       class='country-info_title'
     >Languages:</span>
     {{#each languages}}
-      <li class='country-languages-item'>{{this}},</li>
+      {{#if @last}}
+        <li class='country-languages-item'>{{this}}</li>
+      {{else}}
+        <li class='country-languages-item'>{{this}},</li>
+      {{/if}}
     {{/each}}
   </ul>
 </div>

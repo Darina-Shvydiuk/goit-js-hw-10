@@ -1,5 +1,6 @@
 import './css/styles.css';
 import countryCard from './templets/country-card.hbs';
+import countryCards from './templets/country-cards.hbs';
 import API from './fetchCountries';
 import debounce from 'lodash.debounce';
 import Notiflix from 'notiflix';
@@ -15,7 +16,7 @@ const refs = {
 refs.inputEl.addEventListener('input', debounce(onInputTarget, DEBOUNCE_DELAY));
 
 function onInputTarget(event) {
-  const inputResult = event.target.value;
+  const inputResult = event.target.value.trim();
 
   if (!inputResult) {
     refs.countryInfo.innerHTML = '';
@@ -45,16 +46,9 @@ function renderCountryInfo(search) {
   refs.countryInfo.innerHTML = markup;
 }
 
-function renderCountryList(arr) {
-  const markup = arr.reduce((acc, { name, flags }) => {
-    return (
-      acc +
-      `<li class="country-list_item">
-    <img class="country-list_flag" src="${flags.svg}" alt="${name.official}" width="60" height="60">
-    <p class="country-list_name">${name.official}</p>
-</li>`
-    );
-  }, '');
+function renderCountryList(search) {
+  const markup = countryCards(search);
+
   refs.countryInfo.innerHTML = '';
 
   refs.countryList.innerHTML = markup;
@@ -66,3 +60,14 @@ function onFetchError(error) {
 
   Notiflix.Notify.failure('Oops, there is no country with that name');
 }
+
+// це для себе 2й варіант вирішення без hbs через reduce
+//   const markup = arr.reduce((acc, { name, flags }) => {
+//     return (
+//       acc +
+//       `<li class="country-list_item">
+//     <img class="country-list_flag" src="${flags.svg}" alt="${name.official}" width="60" height="60">
+//     <p class="country-list_name">${name.official}</p>
+// </li>`
+//     );
+//   }, '');
