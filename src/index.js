@@ -17,10 +17,9 @@ refs.inputEl.addEventListener('input', debounce(onInputTarget, DEBOUNCE_DELAY));
 
 function onInputTarget(event) {
   const inputResult = event.target.value.trim();
-
+  refs.countryInfo.innerHTML = '';
+  refs.countryList.innerHTML = '';
   if (!inputResult) {
-    refs.countryInfo.innerHTML = '';
-    refs.countryList.innerHTML = '';
     return;
   }
   API.fetchCountries(inputResult)
@@ -55,9 +54,6 @@ function renderCountryList(search) {
 }
 
 function onFetchError(error) {
-  refs.countryInfo.innerHTML = '';
-  refs.countryList.innerHTML = '';
-
   Notiflix.Notify.failure('Oops, there is no country with that name');
 }
 
