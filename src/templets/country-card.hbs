@@ -1,16 +1,25 @@
-<div class='card'>
-  <div class='card=img'>
-    <img src='{{flags.svg}}' alt='{name}' />
-  </div>
-  <div class='card-body'>
-    <h2 class='card-title'>Назва країни:{{name.official}}</h2>
-    <p class='card-text'>Столиця:{{capital}}</p>
-    <p class='card-text'>Населення:{{population}}</p>
-    <ul class='country-languages'>
-      {{#each languages}}
-        <li class='country-languages-item'>{{this}}</li>
-      {{/each}}
-    </ul>
-  </div>
+<img
+  class='country-info_img'
+  src='{{flags.svg}}'
+  alt='{name.official}'
+  width='180'
+/>
 
+<div class='country-info_inner'>
+  <h2 class='country-info_name'>{{name.official}}</h2>
+  <p class='country-info_capital'><span
+      class='country-info_title'
+    >Capital:</span>
+    {{capital}}</p>
+  <p class='country-info_population'><span
+      class='country-info_title'
+    >Population:</span>
+    {{population}}</p>
+  <ul class='country-languages'><span
+      class='country-info_title'
+    >Languages:</span>
+    {{#each languages}}
+      <li class='country-languages-item'>{{this}},</li>
+    {{/each}}
+  </ul>
 </div>

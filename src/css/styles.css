@@ -18,3 +18,31 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+.country-info_inner {
+  width: 50%;
+  padding: 8px;
+
+  display: flex;
+  flex-direction: column;
+}
+.country-info_title {
+  font: inherit;
+  font-weight: 700;
+}
+.country-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 8px;
+}
+
+.country-list_name {
+  font: inherit;
+  font-weight: 500;
+}
+
+.country-languages {
+  list-style: none;
+  display: flex;
+  padding: 0px;
+}
