@@ -41,14 +41,11 @@ function onInputTarget(event) {
 function renderCountryInfo(search) {
   const markup = countryCard(search);
 
-  refs.countryList.innerHTML = '';
   refs.countryInfo.innerHTML = markup;
 }
 
 function renderCountryList(search) {
   const markup = countryCards(search);
-
-  refs.countryInfo.innerHTML = '';
 
   refs.countryList.innerHTML = markup;
 }
